@@ -1,0 +1,19 @@
+{
+  "name": "Enonic XP Feedback",
+  "version": "0.0.1",
+  "private": true,
+  "description": "An application for adding a feedback line to your site",
+  "scripts": {
+    "build": "./gradlew build",
+    "deploy": "./gradlew deploy",
+    "watch": "./gradlew deploy -t"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.5.2",
+    "babel-loader": "^6.2.3",
+    "babel-preset-es2015": "^6.5.0",
+    "webpack": "^1.12.14"
+  }
+}

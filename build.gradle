@@ -1,0 +1,63 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        jcenter()
+        maven { url 'http://repo.enonic.com/public' }
+    }
+
+    dependencies {
+        classpath "com.enonic.xp:gradle-plugin:${xpVersion}"
+        classpath "com.moowork.gradle:gradle-node-plugin:0.11"
+    }
+}
+
+apply plugin: 'com.enonic.xp.app'
+apply plugin: 'com.moowork.node'
+
+app {
+    name = project.appName
+    displayName = project.displayName
+    vendorName = 'Kristofer Selbekk'
+    vendorUrl = 'http://www.selbekk.io'
+}
+
+dependencies {
+    compile "com.enonic.xp:core-api:${xpVersion}"
+    compile "com.enonic.xp:portal-api:${xpVersion}"
+    include "com.enonic.xp:lib-content:${xpVersion}"
+    include "com.enonic.xp:lib-portal:${xpVersion}"
+    include "com.enonic.xp:lib-thymeleaf:${xpVersion}"
+    //include "com.enonic.xp:lib-xslt:${xpVersion}"
+    //include "com.enonic.xp:lib-mustache:${xpVersion}"
+    //include "com.enonic.xp:lib-i18n:${xpVersion}"
+    //include "com.enonic.xp:lib-auth:${xpVersion}"
+    //include "com.enonic.xp:lib-cache:${xpVersion}"
+    //include "com.enonic.xp:lib-context:${xpVersion}"
+    //include "com.enonic.xp:lib-http-client:${xpVersion}"
+    //include "com.enonic.xp:lib-io:${xpVersion}"
+    //include "com.enonic.xp:lib-mail:${xpVersion}"
+    //include "com.enonic.xp:lib-websocket:${xpVersion}"
+}
+
+repositories {
+    mavenLocal()
+    jcenter()
+    maven {
+        url 'http://repo.enonic.com/public'
+    }
+}
+
+node {
+    version = '5.0.0'
+    download = true
+}
+
+task webpack(type: NodeTask) {
+    script = file('node_modules/webpack/bin/webpack.js')
+}
+
+// processes your package.json before running webpack
+webpack.dependsOn 'npmInstall'
+
+build.dependsOn webpack
+build.mustRunAfter webpack
