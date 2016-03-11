@@ -1,0 +1,21 @@
+<mixin>
+    <display-name>Link</display-name>
+    <items>
+        <input name="label" type="TextLine">
+            <label>Label</label>
+            <occurrences minimum="0" maximum="1"/>
+        </input>
+        <input name="internalLink" type="ContentSelector">
+            <label>Internal link</label>
+            <occurrences minimum="0" maximum="1"/>
+        </input>
+        <input name="externalLink" type="TextLine">
+            <label>Alternatively, an external link</label>
+            <occurrences minimum="0" maximum="1"/>
+        </input>
+        <input name="appendage" type="TextLine">
+            <label>Appended text (hashes or get parameters)</label>
+            <occurrences minimum="0" maximum="1"/>
+        </input>
+    </items>
+</mixin>

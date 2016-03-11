@@ -1,0 +1,24 @@
+<div class="app-feedback-container js-feedback-prompt"
+    data-th-classappend="${layout} ? 'mod-' + ${layout} : ''">
+    <div class="app-feedback" data-th-classappend="${theme} ? 'mod-' + ${theme} : ''">
+        <div class="app-feedback-inner">
+            <p class="app-feedback-intro" data-th-text="${intro}"></p>
+
+            <a class="app-feedback-button js-give-feedback"
+                data-th-if="${link}"
+                data-th-href="${link.url}"
+                data-th-text="${link.label}"></a>
+
+            <button class="app-feedback-close js-close-feedback">&times;</button>
+        </div>
+    </div>
+    <div class="app-feedback-overlay" data-th-if="${appearance} == 'modal'"></div>
+</div>
+<script data-th-inline="javascript">
+    window.__FEEDBACK_PROMPT__ = {
+        rejectedCookieName: [[${cookie.rejected}]],
+        givenCookieName: [[${cookie.given}]],
+        daysUntilExpiration: [[${cookie.daysUntilExpiration}]],
+        secondsDelay: [[${secondsDelay}]]
+    };
+</script>

@@ -1,2 +1,7 @@
-const logStatement = 'JavaScript bundle set up correctly';
-console.log(`${logStatement}`);
+import FeedbackPrompt from './feedback-prompt';
+
+function init() {
+    const prompt = new FeedbackPrompt();
+}
+
+document.addEventListener('DOMContentLoaded', init);

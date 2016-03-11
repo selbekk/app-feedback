@@ -1,0 +1,79 @@
+/***********************/
+/* General styles      */
+/***********************/
+
+.app-feedback-container {
+    font-size: 16px;
+}
+
+.app-feedback-button {
+    border: 1px solid currentColor;
+    color: inherit;
+    display: inline-block;
+    font-size: inherit;
+    padding: 0.4em 1em;
+}
+
+.app-feedback-button:focus {
+    outline: none;
+}
+
+.app-feedback-close {
+    background-color: transparent;
+    border: none;
+    color: inherit;
+    font-size: 2em;
+    height: 100%;
+    margin: 0;
+    padding: 0 0.5em;
+    position: absolute;
+    right: 0;
+    vertical-align: middle;
+}
+
+/***********************/
+/* Layouts */
+/***********************/
+
+.app-feedback-container.mod-bar {
+    bottom: 0;
+    overflow: hidden;
+    max-height: 0;
+    position: fixed;
+    transition: all .5s ease-out;
+    visibility: hidden;
+    width: 100%;
+}
+
+.app-feedback-container.mod-bar .app-feedback-inner {
+    margin: 0 auto;
+    max-width: 1000px;
+    padding: 0 1em;
+    text-align: center;
+}
+
+.app-feedback-container.mod-bar .app-feedback-intro {
+    color: inherit;
+    display: inline-block;
+    font-size: inherit;
+    margin-right: 1em;
+}
+
+.app-feedback-container.mod-bar.is-visible {
+    max-height: 4em;
+    visibility: visible;
+}
+
+/***********************/
+/* Themes              */
+/***********************/
+
+.app-feedback.mod-light {
+    color: #333;
+    background-color: #fff;
+}
+
+.app-feedback.mod-dark {
+    color: #fff;
+    background-color: #333;
+}
