@@ -1,5 +1,5 @@
 {
-  "name": "Enonic XP Feedback",
+  "name": "enonic-xp-feedback",
   "version": "0.0.1",
   "private": true,
   "description": "An application for adding a feedback line to your site",
@@ -14,6 +14,9 @@
     "babel-core": "^6.5.2",
     "babel-loader": "^6.2.3",
     "babel-preset-es2015": "^6.5.0",
+    "cookie-cutter": "^0.1.1",
+    "css-loader": "^0.23.1",
+    "style-loader": "^0.13.0",
     "webpack": "^1.12.14"
   }
 }
