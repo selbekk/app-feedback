@@ -12,4 +12,4 @@ you feedback _right away_!
 - Show a feedback dialogue
 - Decide when it's shown
 - Choose between 1-5 stars and a feedback form (or both)
-- Admin widget for seeing the feedback?
+- Admin widget for seeing the feedback? that would be cool
