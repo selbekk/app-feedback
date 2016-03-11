@@ -1,0 +1,15 @@
+<div class="app-feedback-part">
+    <h1 class="app-feedback-heading" data-th-text="${heading}" data-th-if="${heading}"></h1>
+    <p class="app-feedback-lead" data-th-text="${intro}" data-th-if="${intro}"></p>
+    <form class="js-feedback-form" method="POST" data-th-attr="action=${serviceUrl}">
+        <div class="app-feedback-form-group">
+            <textarea class="app-feedback-textarea js-feedback-textarea"
+                name="feedback"
+                data-th-placeholder="${feedbackPlaceholder}"></textarea>
+        </div>
+        <div class="app-feedback-form-group">
+            <input type="hidden" name="path" data-th-value="${path}" />
+            <button class="app-feedback-button" type="submit" data-th-text="${buttonText}"></button>
+        </div>
+    </form>
+</div>

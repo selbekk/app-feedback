@@ -1,0 +1,15 @@
+<content-type>
+    <display-name>Feedback item</display-name>
+    <super-type>base:structured</super-type>
+    <allow-child-content>true</allow-child-content>
+    <form>
+        <input name="text" type="TextArea">
+            <label>Free text</label>
+            <occurrences minimum="1" maximum="1" />
+        </input>
+        <input name="score" type="Long">
+            <label>Score</label>
+            <occurrences minimum="0" maximum="1" />
+        </input>
+    </form>
+</content-type>

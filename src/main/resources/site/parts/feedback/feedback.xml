@@ -1,0 +1,21 @@
+<part>
+    <display-name>Feedback form</display-name>
+    <config>
+        <input name="heading" type="TextLine">
+            <label>Heading</label>
+            <occurrences minimum="0" maximum="1" />
+        </input>
+        <input name="intro" type="TextArea">
+            <label>Feedback introduction</label>
+            <occurrences minimum="0" maximum="1" />
+        </input>
+        <input name="feedback-placeholder" type="TextLine">
+            <label>Feedback box placeholder text</label>
+            <occurrences minimum="0" maximum="1" />
+        </input>
+        <input name="button-text" type="TextLine">
+            <label>Button text</label>
+            <occurrences minimum="1" maximum="1" />
+        </input>
+    </config>
+</part>
