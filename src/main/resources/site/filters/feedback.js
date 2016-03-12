@@ -9,8 +9,8 @@ exports.responseFilter = function(req, res) {
     // Config
     var COOKIE_FEEDBACK_GIVEN = app.name + '_feedback-given';
     var COOKIE_FEEDBACK_REJECTED = app.name + '_feedback-rejected';
-    var DAYS_BEFORE_ASKING_AGAIN = siteConfig.daysBeforeAskingAgain || 14;
-    var DELAY_SECONDS = siteConfig.secondsBeforeShowing || 10;
+    var DAYS_BEFORE_ASKING_AGAIN = siteConfig.prompt.daysBeforeAskingAgain || 14;
+    var DELAY_SECONDS = siteConfig.prompt.secondsBeforeShowing || 10;
 
     // Do not ask for feedback when in the content studio
     if(req.mode === 'edit') {
@@ -26,10 +26,10 @@ exports.responseFilter = function(req, res) {
     var view = resolve('feedback.html');
 
     var model = {
-        layout: siteConfig.layout,
-        theme: siteConfig.theme,
-        intro: siteConfig.intro,
-        link: flexlink.fromMixin(siteConfig.link),
+        layout: siteConfig.prompt.layout,
+        theme: siteConfig.prompt.theme,
+        intro: siteConfig.prompt.intro,
+        link: flexlink.fromMixin(siteConfig.prompt.link),
         secondsDelay: DELAY_SECONDS,
         cookie: {
             given: COOKIE_FEEDBACK_GIVEN,

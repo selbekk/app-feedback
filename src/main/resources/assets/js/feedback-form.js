@@ -4,8 +4,8 @@ import 'whatwg-fetch';
 export default class FeedbackForm {
     constructor() {
         this.$form = document.querySelector('.js-feedback-form');
-        this.$textarea = this.$form.querySelector('.js-feedback-textarea');
         this.$path = this.$form.querySelector('[name="path"]');
+        this.$fields = [...this.$form.querySelectorAll('.js-feedback-field')];
 
         if(!this.$form) {
             return;
@@ -29,7 +29,10 @@ export default class FeedbackForm {
             },
             body: JSON.stringify({
                 path: this.$path.value,
-                feedback: this.$textarea.value
+                fields: this.$fields.map($field => ({
+                    name: $field.name,
+                    value: $field.value
+                }))
             })
         })
         .then(response => response.json())

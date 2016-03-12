@@ -1,5 +1,5 @@
 import cookie from 'cookie-cutter';
-import '../css/feedback.css';
+import '../css/feedback-prompt.css';
 
 export default class FeedbackPrompt {
     constructor() {

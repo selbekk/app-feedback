@@ -189,8 +189,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../../../../node_modules/css-loader/index.js!./feedback.css", function() {
-				var newContent = require("!!./../../../../../node_modules/css-loader/index.js!./feedback.css");
+			module.hot.accept("!!./../../../../../node_modules/css-loader/index.js!./feedback-prompt.css", function() {
+				var newContent = require("!!./../../../../../node_modules/css-loader/index.js!./feedback-prompt.css");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -543,6 +543,8 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	var FeedbackForm = function () {
@@ -550,8 +552,8 @@
 	        _classCallCheck(this, FeedbackForm);
 
 	        this.$form = document.querySelector('.js-feedback-form');
-	        this.$textarea = this.$form.querySelector('.js-feedback-textarea');
 	        this.$path = this.$form.querySelector('[name="path"]');
+	        this.$fields = [].concat(_toConsumableArray(this.$form.querySelectorAll('.js-feedback-field')));
 
 	        if (!this.$form) {
 	            return;
@@ -578,7 +580,12 @@
 	                },
 	                body: JSON.stringify({
 	                    path: this.$path.value,
-	                    feedback: this.$textarea.value
+	                    fields: this.$fields.map(function ($field) {
+	                        return {
+	                            name: $field.name,
+	                            value: $field.value
+	                        };
+	                    })
 	                })
 	            }).then(function (response) {
 	                return response.json();

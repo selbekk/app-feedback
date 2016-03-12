@@ -2,19 +2,19 @@ var content = require('/lib/xp/content');
 var context = require('/lib/xp/context');
 
 function saveFeedback(data) {
+
     return content.create({
         parentPath: data.path,
         contentType: app.name + ':feedback-response',
         displayName: 'Feedback response',
         data: {
-            text: data.feedback,
-            score: data.score
+            fields: data.fields
         }
     });
 }
 
 exports.post = function(req) {
-    var data = JSON.parse(req.body);
+    var fields = JSON.parse(req.body);
 
     var entry = context.run({
         branch: 'draft',
@@ -22,7 +22,7 @@ exports.post = function(req) {
             login: 'su',
             userStore: 'system'
         }
-    }, saveFeedback.bind(this, data));
+    }, saveFeedback.bind(this, fields));
 
     return {
         body: JSON.stringify(entry),

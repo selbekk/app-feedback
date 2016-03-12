@@ -2,10 +2,17 @@
     <h1 class="app-feedback-heading" data-th-text="${heading}" data-th-if="${heading}"></h1>
     <p class="app-feedback-lead" data-th-text="${intro}" data-th-if="${intro}"></p>
     <form class="js-feedback-form" method="POST" data-th-attr="action=${serviceUrl}">
-        <div class="app-feedback-form-group">
-            <textarea class="app-feedback-textarea js-feedback-textarea"
-                name="feedback"
-                data-th-placeholder="${feedbackPlaceholder}"></textarea>
+        <div class="app-feedback-form-group" data-th-each="field : ${fields}">
+            <label>
+                <span class="app-feedback-field-label" data-th-text="${field.label}"></span>
+                <input data-th-if="${field.type} == 'text' or ${field.type} == 'email'"
+                    data-th-type="${field.type}"
+                    class="app-feedback-field js-feedback-field"
+                    data-th-name="${field.name}" />
+                <textarea data-th-if="${field.type} == 'textarea'"
+                    class="app-feedback-field js-feedback-field"
+                    name="feedback"></textarea>
+            </label>
         </div>
         <div class="app-feedback-form-group">
             <input type="hidden" name="path" data-th-value="${path}" />

@@ -1,43 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
   <config>
-      <input name="layout" type="ComboBox">
-          <label>Layout</label>
-          <occurrences minimum="1" maximum="1"/>
-          <config>
-              <option value="">None (implement it yourself)</option>
-              <option value="bar">Bar at the bottom of the screen</option>
-          </config>
-      </input>
-      <input name="theme" type="ComboBox">
-          <label>Theme</label>
-          <occurrences minimum="1" maximum="1"/>
-          <config>
-              <option value="">None (implement it yourself)</option>
-              <option value="light">Light</option>
-              <option value="dark">Dark</option>
-          </config>
-      </input>
-      <input name="intro" type="TextArea">
-          <label>Introduction text</label>
-          <occurrences minimum="1" maximum="1"/>
-      </input>
-      <item-set name="link">
-          <label>Call to action</label>
-          <occurrences minimum="1" maximum="1"/>
+      <item-set name="prompt">
+          <label>Feedback prompt</label>
+          <occurrences minimum="1" maximum="1" />
           <items>
-              <inline mixin="flexlink" />
+              <input name="layout" type="ComboBox">
+                  <label>Layout</label>
+                  <occurrences minimum="1" maximum="1"/>
+                  <config>
+                      <option value="">None (implement it yourself)</option>
+                      <option value="bar">Bar at the bottom of the screen</option>
+                  </config>
+              </input>
+              <input name="theme" type="ComboBox">
+                  <label>Theme</label>
+                  <occurrences minimum="1" maximum="1"/>
+                  <config>
+                      <option value="">None (implement it yourself)</option>
+                      <option value="light">Light</option>
+                      <option value="dark">Dark</option>
+                  </config>
+              </input>
+              <input name="intro" type="TextArea">
+                  <label>Introduction text</label>
+                  <occurrences minimum="1" maximum="1"/>
+              </input>
+              <item-set name="link">
+                  <label>Call to action</label>
+                  <occurrences minimum="1" maximum="1"/>
+                  <items>
+                      <inline mixin="flexlink" />
+                  </items>
+              </item-set>
+              <input name="secondsBeforeShowing" type="Long">
+                  <label>Seconds before showing feedback bar</label>
+                  <occurrences minimum="0" maximum="1"/>
+              </input>
+              <input name="daysBeforeAskingAgain" type="Long">
+                  <label>Days before asking for feedback since last interaction</label>
+                  <occurrences minimum="0" maximum="1"/>
+              </input>
           </items>
       </item-set>
-      <input name="secondsBeforeShowing" type="Long">
-          <label>Seconds before showing feedback bar</label>
-          <occurrences minimum="0" maximum="1"/>
-      </input>
-      <input name="daysBeforeAskingAgain" type="Long">
-          <label>Days before asking for feedback since last interaction</label>
-          <occurrences minimum="0" maximum="1"/>
-      </input>
-
   </config>
   <filters>
       <response-filter name="feedback" order="10" />
