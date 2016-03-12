@@ -541,6 +541,8 @@
 
 	__webpack_require__(11);
 
+	__webpack_require__(12);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
@@ -551,7 +553,8 @@
 	    function FeedbackForm() {
 	        _classCallCheck(this, FeedbackForm);
 
-	        this.$form = document.querySelector('.js-feedback-form');
+	        this.$el = document.querySelector('.js-feedback-part');
+	        this.$form = this.$el.querySelector('.js-feedback-form');
 	        this.$path = this.$form.querySelector('[name="path"]');
 	        this.$fields = [].concat(_toConsumableArray(this.$form.querySelectorAll('.js-feedback-field')));
 
@@ -570,6 +573,8 @@
 	    }, {
 	        key: '_handleSubmit',
 	        value: function _handleSubmit(e) {
+	            var _this = this;
+
 	            e.preventDefault();
 
 	            fetch(this.$form.action, {
@@ -583,14 +588,15 @@
 	                    fields: this.$fields.map(function ($field) {
 	                        return {
 	                            name: $field.name,
-	                            value: $field.value
+	                            value: $field.value,
+	                            required: $field.required
 	                        };
 	                    })
 	                })
-	            }).then(function (response) {
-	                return response.json();
-	            }).then(function (json) {
-	                return console.log(json);
+	            })
+	            // TODO: Add error handling
+	            .then(function () {
+	                return _this.$el.classList.add('is-submitted');
 	            });
 	        }
 	    }]);
@@ -1373,6 +1379,46 @@
 	  }
 	  self.fetch.polyfill = true
 	})(typeof self !== 'undefined' ? self : this);
+
+
+/***/ },
+/* 12 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(13);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(6)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../../node_modules/css-loader/index.js!./feedback-form.css", function() {
+				var newContent = require("!!./../../../../../node_modules/css-loader/index.js!./feedback-form.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 13 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(5)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "/***********************/\n/* General styles      */\n/***********************/\n\n.app-feedback-part {\n    font-size: 16px;\n    padding: 3em 0;\n}\n\n.app-feedback-part-container {\n    margin: 0 auto;\n    max-width: 1000px;\n    padding: 0 1em;\n    position: relative;\n}\n\n.app-feedback-part-form {\n    transition: visibility .2s ease-out, opacity .2s ease-out;\n    position: absolute;\n}\n\n.app-feedback-part-lead {\n    font-size: 1.25em;\n}\n\n.app-feedback-form-group {\n    margin-top: 1.5em;\n}\n\n.app-feedback-field-label {\n    display: block;\n    font-weight: bold;\n}\n\n.app-feedback-field-label.mod-required:after {\n    color: inherit;\n    content: '*';\n    display: inline-block;\n    font-weight: bold;\n    margin-left: 0.25em;\n}\n\n.app-feedback-field {\n    border: 1px solid #333;\n    display: block;\n    margin-top: 0.5em;\n    padding: 0.5em;\n    width: 100%;\n}\n\ntextarea.app-feedback-field {\n    height: 5em;\n}\n\n.app-feedback-form-button {\n    background-color: #fff;\n    border: 1px solid #333;\n    padding: .5em 3em;\n}\n\n.app-feedback-part-thank-you {\n    position: absolute;\n    visibility: hidden;\n    opacity: 0;\n}\n\n.is-submitted .app-feedback-part-form {\n    opacity: 0;\n    visibility: hidden;\n    pointer-events: none;\n}\n\n.is-submitted .app-feedback-part-thank-you {\n    opacity: 1;\n    visibility: visible;\n    transition: visibility .2s ease-out .2s, opacity .2s ease-out .2s;\n}\n", ""]);
+
+	// exports
 
 
 /***/ }

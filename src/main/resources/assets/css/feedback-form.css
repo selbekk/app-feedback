@@ -1,0 +1,77 @@
+/***********************/
+/* General styles      */
+/***********************/
+
+.app-feedback-part {
+    font-size: 16px;
+    padding: 3em 0;
+}
+
+.app-feedback-part-container {
+    margin: 0 auto;
+    max-width: 1000px;
+    padding: 0 1em;
+    position: relative;
+}
+
+.app-feedback-part-form {
+    transition: visibility .2s ease-out, opacity .2s ease-out;
+    position: absolute;
+}
+
+.app-feedback-part-lead {
+    font-size: 1.25em;
+}
+
+.app-feedback-form-group {
+    margin-top: 1.5em;
+}
+
+.app-feedback-field-label {
+    display: block;
+    font-weight: bold;
+}
+
+.app-feedback-field-label.mod-required:after {
+    color: inherit;
+    content: '*';
+    display: inline-block;
+    font-weight: bold;
+    margin-left: 0.25em;
+}
+
+.app-feedback-field {
+    border: 1px solid #333;
+    display: block;
+    margin-top: 0.5em;
+    padding: 0.5em;
+    width: 100%;
+}
+
+textarea.app-feedback-field {
+    height: 5em;
+}
+
+.app-feedback-form-button {
+    background-color: #fff;
+    border: 1px solid #333;
+    padding: .5em 3em;
+}
+
+.app-feedback-part-thank-you {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.is-submitted .app-feedback-part-form {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.is-submitted .app-feedback-part-thank-you {
+    opacity: 1;
+    visibility: visible;
+    transition: visibility .2s ease-out .2s, opacity .2s ease-out .2s;
+}

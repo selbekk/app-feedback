@@ -22,6 +22,8 @@ exports.get = function (req) {
         intro: config.intro,
         fields: arrayUtil.ensureArray(config.fields).map(toFieldVo),
         buttonText: config['button-text'],
+        thankYouHeading: config['thank-you-heading'],
+        thankYouText: config['thank-you-text']
     };
 
     var js = '<script src="'+ portal.assetUrl({path: 'scripts.js'}) +'"></script>';

@@ -23,9 +23,13 @@
                     <occurrences minimum="1" maximum="1" />
                     <config>
                         <option value="text">Text line</option>
-                        <option value="e-mail">E-mail</option>
+                        <option value="email">E-mail</option>
                         <option value="textarea">Text area</option>
                     </config>
+                </input>
+                <input name="required" type="CheckBox">
+                    <label>Required?</label>
+                    <occurrences minimum="0" maximum="1" />
                 </input>
             </items>
         </item-set>
@@ -34,5 +38,16 @@
             <label>Submit button text</label>
             <occurrences minimum="1" maximum="1" />
         </input>
+
+        <input name="thank-you-heading" type="TextLine">
+            <label>"Thank you" heading</label>
+            <occurrences minimum="1" maximum="1" />
+        </input>
+
+        <input name="thank-you-text" type="TextArea">
+            <label>"Thank you" text</label>
+            <occurrences minimum="1" maximum="1" />
+        </input>
+
     </config>
 </part>

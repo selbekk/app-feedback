@@ -1,9 +1,11 @@
 import Promise from 'promise-polyfill';
 import 'whatwg-fetch';
+import '../css/feedback-form.css';
 
 export default class FeedbackForm {
     constructor() {
-        this.$form = document.querySelector('.js-feedback-form');
+        this.$el = document.querySelector('.js-feedback-part');
+        this.$form = this.$el.querySelector('.js-feedback-form');
         this.$path = this.$form.querySelector('[name="path"]');
         this.$fields = [...this.$form.querySelectorAll('.js-feedback-field')];
 
@@ -31,11 +33,12 @@ export default class FeedbackForm {
                 path: this.$path.value,
                 fields: this.$fields.map($field => ({
                     name: $field.name,
-                    value: $field.value
+                    value: $field.value,
+                    required: $field.required
                 }))
             })
         })
-        .then(response => response.json())
-        .then(json => console.log(json));
+        // TODO: Add error handling
+        .then(() => this.$el.classList.add('is-submitted'));
     }
 }
