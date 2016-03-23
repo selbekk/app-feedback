@@ -208,7 +208,7 @@
 
 
 	// module
-	exports.push([module.id, "/***********************/\n/* General styles      */\n/***********************/\n\n.app-feedback-container {\n    font-size: 16px;\n}\n\n.app-feedback-button {\n    border: 1px solid currentColor;\n    color: inherit;\n    display: inline-block;\n    font-size: inherit;\n    padding: 0.4em 1em;\n}\n\n.app-feedback-button:focus {\n    outline: none;\n}\n\n.app-feedback-close {\n    background-color: transparent;\n    border: none;\n    color: inherit;\n    font-size: 2em;\n    height: 100%;\n    margin: 0;\n    padding: 0 0.5em;\n    position: absolute;\n    right: 0;\n    vertical-align: middle;\n}\n\n/***********************/\n/* Layouts */\n/***********************/\n\n.app-feedback-container.mod-bar {\n    bottom: 0;\n    overflow: hidden;\n    max-height: 0;\n    position: fixed;\n    transition: all .5s ease-out;\n    visibility: hidden;\n    width: 100%;\n}\n\n.app-feedback-container.mod-bar .app-feedback-inner {\n    margin: 0 auto;\n    max-width: 1000px;\n    padding: 0 1em;\n    text-align: center;\n}\n\n.app-feedback-container.mod-bar .app-feedback-intro {\n    color: inherit;\n    display: inline-block;\n    font-size: inherit;\n    margin-right: 1em;\n}\n\n.app-feedback-container.mod-bar.is-visible {\n    max-height: 4em;\n    visibility: visible;\n}\n\n/***********************/\n/* Themes              */\n/***********************/\n\n.app-feedback.mod-light {\n    color: #333;\n    background-color: #fff;\n}\n\n.app-feedback.mod-dark {\n    color: #fff;\n    background-color: #333;\n}\n", ""]);
+	exports.push([module.id, "/***********************/\n/* General styles      */\n/***********************/\n\n.app-feedback-container {\n    font-size: 16px;\n}\n\n.app-feedback-button {\n    border: 1px solid currentColor;\n    color: inherit;\n    display: inline-block;\n    font-size: inherit;\n    padding: 0.4em 1em;\n    text-decoration: none;\n}\n\n.app-feedback-button:focus {\n    outline: none;\n}\n\n.app-feedback-close {\n    background-color: transparent;\n    border: none;\n    color: inherit;\n    font-size: 2em;\n    height: 100%;\n    margin: 0;\n    padding: 0 0.5em;\n    position: absolute;\n    right: 0;\n    vertical-align: middle;\n}\n\n/***********************/\n/* Layouts */\n/***********************/\n\n.app-feedback-container.mod-bar {\n    bottom: 0;\n    overflow: hidden;\n    max-height: 0;\n    position: fixed;\n    transition: all .5s ease-out;\n    visibility: hidden;\n    width: 100%;\n}\n\n.app-feedback-container.mod-bar .app-feedback-inner {\n    margin: 0 auto;\n    max-width: 1000px;\n    padding: 0 1em;\n    text-align: center;\n}\n\n.app-feedback-container.mod-bar .app-feedback-intro {\n    color: inherit;\n    display: inline-block;\n    font-size: inherit;\n    margin-right: 1em;\n}\n\n.app-feedback-container.mod-bar.is-visible {\n    max-height: 4em;\n    visibility: visible;\n}\n\n/***********************/\n/* Themes              */\n/***********************/\n\n.app-feedback.mod-light {\n    color: #333;\n    background-color: #fff;\n}\n\n.app-feedback.mod-dark {\n    color: #fff;\n    background-color: #333;\n}\n", ""]);
 
 	// exports
 
@@ -554,13 +554,12 @@
 	        _classCallCheck(this, FeedbackForm);
 
 	        this.$el = document.querySelector('.js-feedback-part');
+	        if (!this.$el) {
+	            return;
+	        }
 	        this.$form = this.$el.querySelector('.js-feedback-form');
 	        this.$path = this.$form.querySelector('[name="path"]');
 	        this.$fields = [].concat(_toConsumableArray(this.$form.querySelectorAll('.js-feedback-field')));
-
-	        if (!this.$form) {
-	            return;
-	        }
 
 	        this._initEvents();
 	    }

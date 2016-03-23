@@ -5,13 +5,12 @@ import '../css/feedback-form.css';
 export default class FeedbackForm {
     constructor() {
         this.$el = document.querySelector('.js-feedback-part');
+        if(!this.$el) {
+            return;
+        }
         this.$form = this.$el.querySelector('.js-feedback-form');
         this.$path = this.$form.querySelector('[name="path"]');
         this.$fields = [...this.$form.querySelectorAll('.js-feedback-field')];
-
-        if(!this.$form) {
-            return;
-        }
 
         this._initEvents();
     }

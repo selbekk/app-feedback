@@ -12,6 +12,7 @@
     display: inline-block;
     font-size: inherit;
     padding: 0.4em 1em;
+    text-decoration: none;
 }
 
 .app-feedback-button:focus {
