@@ -9,7 +9,8 @@ you feedback _right away_!
 
 ## Planned features
 
-- Show a feedback dialogue
-- Decide when it's shown
-- Choose between 1-5 stars and a feedback form (or both)
+- Add modal
+- Add option for not having any styling (for both part and dialogue)
+- Add input type for thumbs up / thumbs down
+- Add input type for 5 stars rating
 - Admin widget for seeing the feedback? that would be cool
