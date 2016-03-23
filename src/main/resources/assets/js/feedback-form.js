@@ -32,12 +32,10 @@ export default class FeedbackForm {
                 path: this.$path.value,
                 fields: this.$fields.map($field => ({
                     name: $field.name,
-                    value: $field.value,
-                    required: $field.required
+                    value: $field.value
                 }))
             })
         })
-        // TODO: Add error handling
         .then(() => this.$el.classList.add('is-submitted'));
     }
 }

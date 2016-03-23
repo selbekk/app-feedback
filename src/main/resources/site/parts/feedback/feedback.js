@@ -11,7 +11,6 @@ function toFieldVo(field) {
 exports.get = function (req) {
     var config = portal.getComponent().config;
     var content = portal.getContent();
-    log.info(JSON.stringify(content, null, 4));
 
     var view = resolve('feedback.html');
 

@@ -59,19 +59,13 @@ textarea.app-feedback-field {
 }
 
 .app-feedback-part-thank-you {
-    position: absolute;
-    visibility: hidden;
-    opacity: 0;
+    display: none;
 }
 
 .is-submitted .app-feedback-part-form {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
+    display: none;
 }
 
 .is-submitted .app-feedback-part-thank-you {
-    opacity: 1;
-    visibility: visible;
-    transition: visibility .2s ease-out .2s, opacity .2s ease-out .2s;
+    display: block;
 }

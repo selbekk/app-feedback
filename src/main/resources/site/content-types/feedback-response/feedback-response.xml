@@ -13,7 +13,7 @@
                 </input>
                 <input name="value" type="TextArea">
                     <label>Field value</label>
-                    <occurrences minimum="1" maximum="1" />
+                    <occurrences minimum="0" maximum="1" />
                 </input>
             </items>
         </item-set>
