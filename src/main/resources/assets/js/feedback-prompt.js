@@ -1,11 +1,14 @@
 import cookie from 'cookie-cutter';
-import '../css/feedback-prompt.css';
 
 export default class FeedbackPrompt {
     constructor() {
         this.$el = document.querySelector('.js-feedback-prompt');
         if(!this.$el) {
             return;
+        }
+
+        if(this.$el.classList.contains('mod-bar')) {
+            require('../css/feedback-prompt.css'); // Include styles only if needed
         }
 
         this.$close = this.$el.querySelector('.js-close-feedback');

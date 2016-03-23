@@ -1,5 +1,5 @@
 <div class="app-feedback-container js-feedback-prompt"
-    data-th-classappend="${layout} ? 'mod-' + ${layout} : ''">
+    data-th-classappend="${layout != 'none'} ? 'mod-' + ${layout} : ''">
     <div class="app-feedback" data-th-classappend="${theme} ? 'mod-' + ${theme} : ''">
         <div class="app-feedback-inner">
             <p class="app-feedback-intro" data-th-text="${intro}"></p>

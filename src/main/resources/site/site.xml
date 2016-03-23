@@ -9,7 +9,7 @@
                   <label>Layout</label>
                   <occurrences minimum="1" maximum="1"/>
                   <config>
-                      <option value="">None (implement it yourself)</option>
+                      <option value="none">None (implement it yourself)</option>
                       <option value="bar">Bar at the bottom of the screen</option>
                   </config>
               </input>
@@ -17,7 +17,7 @@
                   <label>Theme</label>
                   <occurrences minimum="1" maximum="1"/>
                   <config>
-                      <option value="">None (implement it yourself)</option>
+                      <option value="none">None (implement it yourself)</option>
                       <option value="light">Light</option>
                       <option value="dark">Dark</option>
                   </config>

@@ -79,8 +79,6 @@
 
 	var _cookieCutter2 = _interopRequireDefault(_cookieCutter);
 
-	__webpack_require__(3);
-
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -92,6 +90,10 @@
 	        this.$el = document.querySelector('.js-feedback-prompt');
 	        if (!this.$el) {
 	            return;
+	        }
+
+	        if (this.$el.classList.contains('mod-bar')) {
+	            __webpack_require__(3); // Include styles only if needed
 	        }
 
 	        this.$close = this.$el.querySelector('.js-close-feedback');
@@ -541,8 +543,6 @@
 
 	__webpack_require__(11);
 
-	__webpack_require__(12);
-
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
@@ -557,6 +557,11 @@
 	        if (!this.$el) {
 	            return;
 	        }
+
+	        if (this.$el.classList.contains('mod-basic')) {
+	            __webpack_require__(12); // Include styles only if needed
+	        }
+
 	        this.$form = this.$el.querySelector('.js-feedback-form');
 	        this.$path = this.$form.querySelector('[name="path"]');
 	        this.$fields = [].concat(_toConsumableArray(this.$form.querySelectorAll('.js-feedback-field')));

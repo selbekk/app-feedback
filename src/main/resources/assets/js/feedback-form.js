@@ -1,6 +1,5 @@
 import Promise from 'promise-polyfill';
 import 'whatwg-fetch';
-import '../css/feedback-form.css';
 
 export default class FeedbackForm {
     constructor() {
@@ -8,6 +7,11 @@ export default class FeedbackForm {
         if(!this.$el) {
             return;
         }
+
+        if(this.$el.classList.contains('mod-basic')) {
+            require('../css/feedback-form.css'); // Include styles only if needed
+        }
+
         this.$form = this.$el.querySelector('.js-feedback-form');
         this.$path = this.$form.querySelector('[name="path"]');
         this.$fields = [...this.$form.querySelectorAll('.js-feedback-field')];
