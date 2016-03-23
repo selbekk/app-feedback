@@ -2,70 +2,79 @@
 /* General styles      */
 /***********************/
 
-.app-feedback-part {
+.app-feedback-part.mod-basic {
     font-size: 16px;
     padding: 3em 0;
 }
 
-.app-feedback-part-container {
+.app-feedback-part.mod-dark {
+    color: #fff;
+}
+
+.app-feedback-part.mod-light {
+    color: #333;
+}
+
+.app-feedback-part.mod-light *,
+.app-feedback-part.mod-dark * {
+    color: inherit;
+}
+
+.app-feedback-part.mod-basic .app-feedback-part-container {
     margin: 0 auto;
     max-width: 1000px;
     padding: 0 1em;
     position: relative;
 }
 
-.app-feedback-part-form {
-    transition: visibility .2s ease-out, opacity .2s ease-out;
-    position: absolute;
-}
-
-.app-feedback-part-lead {
+.app-feedback-part.mod-basic .app-feedback-part-lead {
     font-size: 1.25em;
 }
 
-.app-feedback-form-group {
+.app-feedback-part.mod-basic .app-feedback-form-group {
     margin-top: 1.5em;
 }
 
-.app-feedback-field-label {
+.app-feedback-part.mod-basic .app-feedback-field-label {
     display: block;
     font-weight: bold;
 }
 
-.app-feedback-field-label.mod-required:after {
-    color: inherit;
+.app-feedback-part.mod-basic .app-feedback-field-label.mod-required:after {
     content: '*';
     display: inline-block;
     font-weight: bold;
     margin-left: 0.25em;
 }
 
-.app-feedback-field {
-    border: 1px solid #333;
+.app-feedback-part.mod-basic .app-feedback-field {
+    background-color: #fff;
+    border: 1px solid currentColor;
     display: block;
     margin-top: 0.5em;
     padding: 0.5em;
     width: 100%;
 }
 
-textarea.app-feedback-field {
+.app-feedback-part.mod-basic textarea.app-feedback-field {
     height: 5em;
+    resize: vertical;
 }
 
-.app-feedback-form-button {
-    background-color: #fff;
-    border: 1px solid #333;
+.app-feedback-part.mod-basic .app-feedback-form-button {
+    background-color: transparent;
+    border: 1px solid currentColor;
     padding: .5em 3em;
 }
 
-.app-feedback-part-thank-you {
+.app-feedback-part.mod-basic .app-feedback-part-thank-you {
     display: none;
 }
 
-.is-submitted .app-feedback-part-form {
+.app-feedback-part.mod-basic.is-submitted .app-feedback-part-form {
     display: none;
 }
 
-.is-submitted .app-feedback-part-thank-you {
+.app-feedback-part.mod-basic.is-submitted .app-feedback-part-thank-you {
     display: block;
 }

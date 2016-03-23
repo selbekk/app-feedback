@@ -17,6 +17,7 @@ exports.get = function (req) {
     var model = {
         serviceUrl: portal.serviceUrl({service: 'feedback'}),
         path: content._path,
+        layout: config.layout,
         heading: config.heading,
         intro: config.intro,
         fields: arrayUtil.ensureArray(config.fields).map(toFieldVo),

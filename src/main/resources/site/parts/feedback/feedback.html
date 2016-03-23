@@ -1,4 +1,4 @@
-<div class="app-feedback-part js-feedback-part">
+<div class="app-feedback-part js-feedback-part" data-th-classappend="${layout != 'none'} ? 'mod-' + ${layout} : ''">
     <div class="app-feedback-part-container">
         <div class="app-feedback-part-form">
             <h1 class="app-feedback-part-heading" data-th-text="${heading}" data-th-if="${heading}"></h1>
