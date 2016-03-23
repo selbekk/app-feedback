@@ -4,21 +4,23 @@
             <h1 class="app-feedback-part-heading" data-th-text="${heading}" data-th-if="${heading}"></h1>
             <p class="app-feedback-part-lead" data-th-text="${intro}" data-th-if="${intro}"></p>
             <form class="js-feedback-form" method="POST" data-th-attr="action=${serviceUrl}">
-                <div class="app-feedback-form-group" data-th-each="field : ${fields}">
-                    <label>
+                <div class="app-feedback-form-group" data-th-each="field, iterator : ${fields}">
+                    <label data-th-for="${'feedback-form-input-' + iterator.index}">
                         <span class="app-feedback-field-label"
                             data-th-classappend="${field.required} ? 'mod-required' : ''"
                             data-th-text="${field.label}"></span>
-                        <input data-th-if="${field.type} == 'text' or ${field.type} == 'email'"
-                            data-th-type="${field.type}"
-                            data-th-required="${field.required}"
-                            class="app-feedback-field js-feedback-field"
-                            data-th-name="${field.name}" />
-                        <textarea data-th-if="${field.type} == 'textarea'"
-                            class="app-feedback-field js-feedback-field"
-                            data-th-required="${field.required}"
-                            data-th-name="${field.name}"></textarea>
                     </label>
+                    <input data-th-if="${field.type} == 'text' or ${field.type} == 'email'"
+                        data-th-id="${'feedback-form-input-' + iterator.index}"
+                        data-th-type="${field.type}"
+                        data-th-required="${field.required}"
+                        class="app-feedback-field js-feedback-field"
+                        data-th-name="${field.name}" />
+                    <textarea data-th-if="${field.type} == 'textarea'"
+                        class="app-feedback-field js-feedback-field"
+                        data-th-id="${'feedback-form-input-' + iterator.index}"
+                        data-th-required="${field.required}"
+                        data-th-name="${field.name}"></textarea>
                 </div>
                 <div class="app-feedback-form-group">
                     <input type="hidden" name="path" data-th-value="${path}" />
