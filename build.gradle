@@ -8,18 +8,17 @@ buildscript {
     dependencies {
         classpath "com.enonic.xp:gradle-plugin:${xpVersion}"
         classpath "com.moowork.gradle:gradle-node-plugin:0.11"
+        classpath 'net.researchgate:gradle-release:2.3.4'
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.6'
     }
 }
 
 apply plugin: 'com.enonic.xp.app'
 apply plugin: 'com.moowork.node'
+apply plugin: 'net.researchgate.release'
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'java'
 
-app {
-    name = project.appName
-    displayName = project.displayName
-    vendorName = 'Kristofer Selbekk'
-    vendorUrl = 'http://www.selbekk.io'
-}
 
 dependencies {
     compile "com.enonic.xp:core-api:${xpVersion}"
@@ -28,15 +27,6 @@ dependencies {
     include "com.enonic.xp:lib-portal:${xpVersion}"
     include "com.enonic.xp:lib-thymeleaf:${xpVersion}"
     include "com.enonic.xp:lib-context:${xpVersion}"
-    //include "com.enonic.xp:lib-xslt:${xpVersion}"
-    //include "com.enonic.xp:lib-mustache:${xpVersion}"
-    //include "com.enonic.xp:lib-i18n:${xpVersion}"
-    //include "com.enonic.xp:lib-auth:${xpVersion}"
-    //include "com.enonic.xp:lib-cache:${xpVersion}"
-    //include "com.enonic.xp:lib-http-client:${xpVersion}"
-    //include "com.enonic.xp:lib-io:${xpVersion}"
-    //include "com.enonic.xp:lib-mail:${xpVersion}"
-    //include "com.enonic.xp:lib-websocket:${xpVersion}"
 }
 
 repositories {
@@ -47,6 +37,30 @@ repositories {
     }
 }
 
+app {
+    name = project.appName
+    displayName = project.displayName
+    vendorName = 'Kristofer Selbekk'
+    vendorUrl = 'http://www.selbekk.io'
+}
+
+bintray {
+    user = System.getenv('BINTRAY_USER')
+    key = System.getenv('BINTRAY_KEY')
+    pkg {
+        repo = 'maven'
+        name = project.appName
+        userOrg = 'selbekk'
+        licenses = ['Apache-2.0']
+        vcsUrl = 'https://github.com/selbekk/app-feedback.git'
+        version {
+            name = project.version
+            released = new Date()
+            configurations = ['archives']
+        }
+    }
+}
+
 node {
     version = '5.0.0'
     download = true
@@ -54,6 +68,7 @@ node {
 
 task webpack(type: NodeTask) {
     script = file('node_modules/webpack/bin/webpack.js')
+    args = ['-p']
 }
 
 // processes your package.json before running webpack
