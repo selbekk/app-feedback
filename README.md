@@ -135,3 +135,14 @@ giving some feedback. This is the heading of that screen.
 
 The text shown below the heading. Sum up why your users are awesome for telling
 you how you could improve.
+
+## Questions?
+
+If you have any questions, create an issue, and I'll make sure to answer them as
+soon as possible.
+
+## Open open source
+
+If you want to contribute, please create a pull request. If it's approved,
+you'll get full contributor access, as well as your name on the contributors
+list. We trust you!
