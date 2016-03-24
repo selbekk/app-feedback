@@ -19,7 +19,7 @@ how to install and set up the application on your site.
 
 ### Step 1: Installation
 
-[Download the `.jar` file from Bintray](https://bintray.com/artifact/download/selbekk/maven/io/selbekk/feedback/1.0.0/feedback-1.0.0.jar)
+[Download the `.jar` file from Bintray](https://bintray.com/artifact/download/selbekk/maven/io/selbekk/feedback/1.0.1/feedback-1.0.1.jar)
 and install the application via your Enonic installation's Application panel.
 In the future, the application will hopefully also be available in the
 [Enonic Market](https://market.enonic.com/), but not quite yet.
